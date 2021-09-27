@@ -2,12 +2,25 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Movie-System-Server" />
+        <module name="Movie-System-Common" />
+        <module name="General-User-Service" />
+        <module name="Movie-System-Authorization" />
+        <module name="General-User-Api" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="General-User-Api" options="-parameters" />
+      <module name="General-User-Service" options="-parameters" />
+      <module name="Movie-System-Authorization" options="-parameters" />
+      <module name="Movie-System-Common" options="-parameters" />
+      <module name="Movie-System-General-User" options="-parameters" />
+    </option>
   </component>
 </project>
