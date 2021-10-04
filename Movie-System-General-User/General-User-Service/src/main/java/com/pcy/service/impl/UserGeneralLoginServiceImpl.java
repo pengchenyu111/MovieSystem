@@ -39,7 +39,7 @@ public class UserGeneralLoginServiceImpl implements UserGeneralLoginService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @Value("${basic.token:Basic YXBwbmFtZS1vdXRzaWRlLWFwaTphcHBuYW1lLW91dHNpZGUtc2VjcmV0}")
+    @Value("${basic.token:Basic bW92aWVzeXN0ZW0tb3V0c2lkZS1hcGk6bW92aWVzeXN0ZW0=}")
     private String basicToken;
 
 

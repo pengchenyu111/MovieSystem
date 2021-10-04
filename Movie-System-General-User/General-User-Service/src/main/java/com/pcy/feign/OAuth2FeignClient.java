@@ -15,6 +15,6 @@ public interface OAuth2FeignClient {
             @RequestParam("username") String username, // 用户名
             @RequestParam("password") String password, // 用户的密码
             @RequestParam("login_type") String loginType,  // 登录的类型
-            @RequestHeader("Authorization") String basicToken // Basic Y29pbi1hcGk6Y29pbi1zZWNyZXQ= 由第三方客户端信息加密出现的值
+            @RequestHeader("Authorization") String basicToken // Basic bW92aWVzeXN0ZW0tb3V0c2lkZS1hcGk6bW92aWVzeXN0ZW0= 由第三方客户端信息加密出现的值
     );
 }
