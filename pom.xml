@@ -13,6 +13,7 @@
         <module>Movie-System-Common</module>
         <module>Movie-System-Authorization</module>
         <module>Movie-System-General-User</module>
+        <module>Movie-System-Gatway</module>
     </modules>
 
     <parent>

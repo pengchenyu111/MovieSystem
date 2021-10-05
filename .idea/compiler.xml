@@ -10,6 +10,7 @@
         <module name="movie-system-authorization" />
         <module name="General-User-Service" />
         <module name="movie-system-common" />
+        <module name="Movie-System-Gatway" />
         <module name="general-user-service" />
         <module name="Movie-System-Common" />
         <module name="general-user-api" />
@@ -24,6 +25,7 @@
       <module name="General-User-Service" options="-parameters" />
       <module name="Movie-System-Authorization" options="-parameters" />
       <module name="Movie-System-Common" options="-parameters" />
+      <module name="Movie-System-Gatway" options="-parameters" />
       <module name="Movie-System-General-User" options="-parameters" />
       <module name="general-user-api" options="-parameters" />
       <module name="general-user-service" options="-parameters" />

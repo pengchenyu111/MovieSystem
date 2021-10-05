@@ -152,7 +152,7 @@ public class UserServiceDetailsServiceImpl implements UserDetailsService {
     }
 
     /**
-     * 获取管理员的权限
+     * 获取普通用户的权限
      *
      * @param id
      * @return
