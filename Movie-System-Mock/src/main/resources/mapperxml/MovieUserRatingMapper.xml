@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcy.mapper.MovieUserRatingMapper">
+  <resultMap id="BaseResultMap" type="com.pcy.domain.MovieUserRating">
+    <!--@mbg.generated-->
+    <!--@Table movie_user_rating-->
+    <id column="review_id" jdbcType="CHAR" property="reviewId" />
+    <result column="douban_id" jdbcType="INTEGER" property="doubanId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_movie_rating" jdbcType="DOUBLE" property="userMovieRating" />
+    <result column="user_movie_rating_time" jdbcType="VARCHAR" property="userMovieRatingTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    review_id, douban_id, user_id, user_movie_rating, user_movie_rating_time
+  </sql>
+</mapper>

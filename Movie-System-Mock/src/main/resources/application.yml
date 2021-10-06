@@ -1,0 +1,12 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: mock-server
+  datasource:
+    url: jdbc:mysql://192.168.126.131:3306/movie_system?&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezon=GMT%28
+    username: root
+    password: Pcy90321.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  mapper-locations: classpath*:mapperxml/*.xml
