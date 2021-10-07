@@ -26,7 +26,7 @@ import java.util.concurrent.*;
 @Component
 public class RatingLogMock {
 
-    public static final int PER_GENERATE_RECORD_NUM = 10000;
+    public static final int PER_GENERATE_RECORD_NUM = 1000;
     public static final int THREAD_NUM = 10;
 
     @Resource
