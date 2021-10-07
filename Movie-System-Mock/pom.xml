@@ -12,6 +12,11 @@
     <artifactId>movie-system-mock</artifactId>
 
     <dependencies>
+        <!-- Nacos 服务注册与配置中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
         <!--springboot web启动器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: mock-server
+  cloud:
+    nacos:
+      server-addr: 192.168.126.131:8848
+      discovery:
+        namespace: 9b28552e-c47c-433e-9ad2-da8128fe5d0d
+        group: DEFAULT_GROUP
   datasource:
     url: jdbc:mysql://192.168.126.131:3306/movie_system?&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezon=GMT%28
     username: root
