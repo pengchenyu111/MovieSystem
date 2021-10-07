@@ -59,7 +59,6 @@ public class RatingLogMock {
                         .userMovieRatingTime(DateUtil.now())
                         .build();
                 try {
-                    System.out.println(objectMapper.writeValueAsString(ratingRecord));
                     log.info(objectMapper.writeValueAsString(ratingRecord));
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
