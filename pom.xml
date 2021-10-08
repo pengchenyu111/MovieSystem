@@ -15,6 +15,7 @@
         <module>Movie-System-General-User</module>
         <module>Movie-System-Gatway</module>
         <module>Movie-System-Mock</module>
+        <module>Movie-System-Movie</module>
     </modules>
 
     <parent>
@@ -31,7 +32,9 @@
         <com-alibaba-cloud.version>2.2.5.RELEASE</com-alibaba-cloud.version>
         <mybatis-plus-boot-stater.version>3.3.2</mybatis-plus-boot-stater.version>
         <druid-boot-stater.version>1.2.6</druid-boot-stater.version>
+        <pagehelper.version>1.2.13</pagehelper.version>
         <redisson-spring-boot-starter.version>3.8.0</redisson-spring-boot-starter.version>
+        <es.version>2.3.2.RELEASE</es.version>
         <jetcache-starter-redis.version>2.6.0</jetcache-starter-redis.version>
         <aliyun-sdk-oss.version>3.9.1</aliyun-sdk-oss.version>
         <aliyun-java-sdk-core.version>4.5.9</aliyun-java-sdk-core.version>
@@ -81,6 +84,12 @@
                 <artifactId>mybatis-plus-annotation</artifactId>
                 <version>${mybatis-plus-boot-stater.version}</version>
             </dependency>
+            <!-- 分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
 
             <!-- Redis相关 -->
             <dependency>
@@ -93,6 +102,13 @@
                 <groupId>com.alicp.jetcache</groupId>
                 <artifactId>jetcache-starter-redis</artifactId>
                 <version>${jetcache-starter-redis.version}</version>
+            </dependency>
+
+            <!-- ElasticSearch -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>${es.version}</version>
             </dependency>
 
             <!-- 阿里云相关-->

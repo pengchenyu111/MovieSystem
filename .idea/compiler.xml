@@ -7,9 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Movie-System-Movie-Service" />
         <module name="movie-system-authorization" />
         <module name="General-User-Service" />
         <module name="movie-system-common" />
+        <module name="Movie-System-Movie-Api" />
         <module name="Movie-System-Gatway" />
         <module name="general-user-service" />
         <module name="Movie-System-Common" />
@@ -29,6 +31,9 @@
       <module name="Movie-System-Gatway" options="-parameters" />
       <module name="Movie-System-General-User" options="-parameters" />
       <module name="Movie-System-Mock" options="-parameters" />
+      <module name="Movie-System-Movie" options="-parameters" />
+      <module name="Movie-System-Movie-Api" options="-parameters" />
+      <module name="Movie-System-Movie-Service" options="-parameters" />
       <module name="general-user-api" options="-parameters" />
       <module name="general-user-service" options="-parameters" />
       <module name="movie-system-authorization" options="-parameters" />

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: movie-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      # 从 nacos 里拉取 movie-service-dev.yaml配置文件
+      server-addr: 192.168.126.131:8848
+      discovery:
+        namespace: 9b28552e-c47c-433e-9ad2-da8128fe5d0d
+        group: DEFAULT_GROUP
+      config:
+        namespace: 9b28552e-c47c-433e-9ad2-da8128fe5d0d
+        group: DEFAULT_GROUP
+        file-extension: yaml
