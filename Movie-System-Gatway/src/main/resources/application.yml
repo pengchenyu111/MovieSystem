@@ -19,10 +19,10 @@ spring:
           uri: lb://general-user-service
           predicates:
             - Path=/user/**
-#        - id: movie-server-service_router
-#          uri: lb://movie-server-service
-#          predicates:
-#            - Path=/movie_detail/**
+        - id: movie-service_router
+          uri: lb://movie-service
+          predicates:
+            - Path=/api/movie/movieDetail/**
 #        - id: sms-mail-server-service_router
 #          uri: lb://sms-mail-server-service
 #          predicates:

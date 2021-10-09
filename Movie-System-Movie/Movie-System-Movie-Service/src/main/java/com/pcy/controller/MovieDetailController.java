@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Api(value = "/movieDetail", tags = "movieDetail")
 @RestController
-@RequestMapping("api/recommendation/movieDetail")
+@RequestMapping("api/movie/movieDetail")
 public class MovieDetailController {
     /**
      * 服务对象
