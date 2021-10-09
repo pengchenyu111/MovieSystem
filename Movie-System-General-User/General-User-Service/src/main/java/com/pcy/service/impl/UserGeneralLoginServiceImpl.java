@@ -78,7 +78,7 @@ public class UserGeneralLoginServiceImpl implements UserGeneralLoginService {
                 .collect(Collectors.toList());
 
         // 4 将该token 存储在redis 里面，便于网关做jwt验证
-        stringRedisTemplate.opsForValue().set(token, "", jwtToken.getExpiresIn(), TimeUnit.SECONDS);
+        stringRedisTemplate.opsForValue().setIfAbsent(token, "", jwtToken.getExpiresIn(), TimeUnit.SECONDS);
         // 5 注意返回时添加token_type
         return new LoginResult(Boolean.TRUE, jwtToken.getTokenType() + " " + token, menus, authorities);
     }
