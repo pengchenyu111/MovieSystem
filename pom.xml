@@ -16,6 +16,7 @@
         <module>Movie-System-Gatway</module>
         <module>Movie-System-Mock</module>
         <module>Movie-System-Movie</module>
+        <module>Movie-System-SMS-Mail</module>
     </modules>
 
     <parent>

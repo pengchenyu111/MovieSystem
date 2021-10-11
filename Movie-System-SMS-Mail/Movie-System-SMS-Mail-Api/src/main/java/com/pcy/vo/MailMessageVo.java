@@ -1,4 +1,4 @@
-package com.pcy.model.mail;
+package com.pcy.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MailMessage implements Serializable {
+public class MailMessageVo implements Serializable {
 
     private static final long serialVersionUID = 6073041204087235924L;
 
