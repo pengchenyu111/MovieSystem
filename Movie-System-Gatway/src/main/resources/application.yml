@@ -23,10 +23,11 @@ spring:
           uri: lb://movie-service
           predicates:
             - Path=/api/movie/movieDetail/**
-#        - id: sms-mail-server-service_router
-#          uri: lb://sms-mail-server-service
-#          predicates:
-#            - Path=/sms_mail/**
+        - id: sms-mail-service_router
+          uri: lb://sms-mail-service
+          predicates:
+            - Path=/sms_mail/**
+
 
     # Sentinel 限流与降级
     sentinel:
