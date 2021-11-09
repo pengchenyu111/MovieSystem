@@ -1,5 +1,6 @@
 package com.pcy.service;
 
+import com.pcy.domain.UserGeneral;
 import com.pcy.model.LoginResult;
 
 /**
@@ -15,7 +16,7 @@ public interface UserGeneralLoginService {
      * @param password 用户的密码
      * @return 登录的结果
      */
-    LoginResult login(String username, String password);
+    LoginResult<UserGeneral> login(String username, String password);
 
 
 }

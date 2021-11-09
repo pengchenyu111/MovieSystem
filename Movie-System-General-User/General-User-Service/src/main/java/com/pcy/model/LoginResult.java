@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel(value = "登录的结果")
-public class LoginResult {
+public class LoginResult<T> {
 
     /**
      * 是否登录成功标志
@@ -33,6 +33,7 @@ public class LoginResult {
     /**
      * 其他数据，自由定制
      */
+    private T userInfo;
 
     /**
      * 该用户的菜单数据

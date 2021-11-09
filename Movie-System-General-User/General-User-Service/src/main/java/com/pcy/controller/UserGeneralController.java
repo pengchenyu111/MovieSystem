@@ -1,6 +1,7 @@
 package com.pcy.controller;
 
 import com.pcy.constant.ErrorCodeMsg;
+import com.pcy.domain.UserGeneral;
 import com.pcy.model.LoginResult;
 import com.pcy.model.ResponseObject;
 import com.pcy.service.UserGeneralLoginService;
@@ -34,8 +35,8 @@ public class UserGeneralController {
                     @ApiImplicitParam(name = "password", value = "用户的密码"),
             }
     )
-    public ResponseObject<LoginResult> login(@RequestParam String username, @RequestParam String password) {
-        LoginResult loginResult = userGeneralLoginService.login(username, password);
+    public ResponseObject<LoginResult<UserGeneral>> login(@RequestParam String username, @RequestParam String password) {
+        LoginResult<UserGeneral> loginResult = userGeneralLoginService.login(username, password);
         if(!loginResult.getIsLoginSuccess()){
             return ResponseObject.failed(ErrorCodeMsg.UNAUTHORIZED_CODE,ErrorCodeMsg.UNAUTHORIZED_MESSAGE, null);
         }

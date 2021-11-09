@@ -3,13 +3,17 @@ package com.pcy.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.enums.ApiErrorCode;
 import com.baomidou.mybatisplus.extension.exceptions.ApiException;
+import com.pcy.domain.UserGeneral;
 import com.pcy.feign.JwtToken;
 import com.pcy.feign.OAuth2FeignClient;
+import com.pcy.mapper.UserGeneralMapper;
 import com.pcy.model.LoginResult;
 import com.pcy.service.UserGeneralLoginService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -39,6 +43,9 @@ public class UserGeneralLoginServiceImpl implements UserGeneralLoginService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+    @Autowired
+    private UserGeneralMapper userGeneralMapper;
+
     @Value("${basic.token:Basic bW92aWVzeXN0ZW0tb3V0c2lkZS1hcGk6bW92aWVzeXN0ZW0=}")
     private String basicToken;
 
@@ -51,12 +58,15 @@ public class UserGeneralLoginServiceImpl implements UserGeneralLoginService {
      * @return 登录的结果
      */
     @Override
-    public LoginResult login(String username, String password) {
+    public LoginResult<UserGeneral> login(String username, String password) {
         log.info("用户{}开始登录", username);
         // 1 获取token 需要远程调用authorization-server 该服务
-        ResponseEntity<JwtToken> tokenResponseEntity = oAuth2FeignClient.getToken("password", username, password, "general_user_type", basicToken);
-        if (tokenResponseEntity.getStatusCode() != HttpStatus.OK) {
-            throw new ApiException(ApiErrorCode.FAILED);
+        ResponseEntity<JwtToken> tokenResponseEntity = null;
+        try {
+            tokenResponseEntity = oAuth2FeignClient.getToken("password", username, password, "general_user_type", basicToken);
+        } catch (Exception e) {
+            log.info("用户{}登录失败", username);
+            return new LoginResult<UserGeneral>(Boolean.FALSE, null, null, null, null);
         }
         JwtToken jwtToken = tokenResponseEntity.getBody();
         log.info("远程调用授权服务器成功,获取的token为{}", JSON.toJSONString(jwtToken, true));
@@ -79,7 +89,12 @@ public class UserGeneralLoginServiceImpl implements UserGeneralLoginService {
 
         // 4 将该token 存储在redis 里面，便于网关做jwt验证
         stringRedisTemplate.opsForValue().setIfAbsent(token, "", jwtToken.getExpiresIn(), TimeUnit.SECONDS);
-        // 5 注意返回时添加token_type
-        return new LoginResult(Boolean.TRUE, jwtToken.getTokenType() + " " + token, menus, authorities);
+
+        // 5 查询用户详细信息
+        LambdaQueryWrapper<UserGeneral> queryWrapper = new LambdaQueryWrapper<UserGeneral>()
+                .eq(!StringUtils.isEmpty(username), UserGeneral::getAccount, username);
+        UserGeneral userGeneral = userGeneralMapper.selectOne(queryWrapper);
+        // 6 注意返回时添加token_type
+        return new LoginResult<UserGeneral>(Boolean.TRUE, jwtToken.getTokenType() + " " + token, userGeneral, menus, authorities);
     }
 }
